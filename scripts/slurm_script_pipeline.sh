@@ -9,7 +9,7 @@
 #SBATCH --output ./logs/%x_%j.out.txt
 
 export PATH="/scratch/tmp/thomachr/software/dorado-0.4.2-linux-x64/bin:$PATH"
-export PATH="/home/t/thomachr/.local/bin/sturgeon:$PATH"
+export PATH="/home/t/thomachr/.local/bin:$PATH"
 
 basedir="."
 mkdir -p ${basedir}/dorado_output
