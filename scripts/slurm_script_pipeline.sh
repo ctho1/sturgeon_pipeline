@@ -8,6 +8,9 @@
 #SBATCH --error ./logs/%x_%j.err.txt
 #SBATCH --output ./logs/%x_%j.out.txt
 
+export PATH="/scratch/tmp/thomachr/software/dorado-0.4.2-linux-x64/bin:$PATH"
+export PATH="/home/t/thomachr/.local/bin/sturgeon:$PATH"
+
 basedir="."
 mkdir -p ${basedir}/dorado_output
 mkdir -p ${basedir}/modkit_output
