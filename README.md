@@ -1,2 +1,2 @@
 # sturgeon_pipeline
-Performs Sturgeon Calssification and CNV Calling of Nanopore Reads
+Performs Sturgeon calssification and CNV calling of nanopore reads. Uses SLURM on the PALMA-II HPC cluster @ University of Münster.
