@@ -9,7 +9,6 @@
 #SBATCH --output ./logs/%x_%j.out.txt
 
 export PATH="/scratch/tmp/thomachr/software/dorado-0.4.2-linux-x64/bin:$PATH"
-export PATH="/home/t/thomachr/.local/bin:$PATH"
 
 basedir="."
 mkdir -p ${basedir}/dorado_output
@@ -50,7 +49,8 @@ modkit extract ${basedir}/tmp/${base}/${base}_calls_modkit.bam ${basedir}/tmp/${
 
 # Sturgeon
 module unload
-ml palma/2021a  GCC/10.3.0  OpenMPI/4.1.1 ONNX-Runtime/1.10.0
+ml palma/2021b GCC/11.2.0 OpenMPI/4.1.1 sturgeon/0.4.3
+
 sturgeon inputtobed -i ${basedir}/tmp/${base}/ -o ${basedir}/tmp/${base}/ -s modkit
 
 sturgeon predict \
