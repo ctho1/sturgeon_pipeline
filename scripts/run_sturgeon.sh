@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=18
-#SBATCH --partition requeue
+#SBATCH --partition normal
 #SBATCH --time=0:30:00
 #SBATCH --mem=16G
 #SBATCH --job-name=sturgeon
