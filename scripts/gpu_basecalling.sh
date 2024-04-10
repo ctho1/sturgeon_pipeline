@@ -4,7 +4,7 @@
 #SBATCH --mem=30G
 #SBATCH --ntasks-per-node=6
 #SBATCH --gres=gpu:1
-#SBATCH --time=0-01:00:00
+#SBATCH --time=0-00:30:00
 #SBATCH --job-name=gpu_basecalling
 #SBATCH --mail-type=ALL
 #SBATCH --error ./logs/%x_%j.err.txt
