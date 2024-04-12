@@ -2,7 +2,7 @@
 #SBATCH --partition=gpu2080
 #SBATCH --nodes=1
 #SBATCH --mem=30G
-#SBATCH --ntasks-per-node=2
+#SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:1
 #SBATCH --time=0-00:30:00
 #SBATCH --job-name=gpu_basecalling
@@ -38,13 +38,13 @@ $dorado/dorado basecaller --modified-bases-models $dorado_modification \
 
 # Dorado Alignment chm13v2
 $dorado/dorado aligner /scratch/tmp/thomachr/references/T2T/chm13v2.0.fa \
-	${basedir}/tmp/${base}/${base}_calls_sorted.bam > ${basedir}/tmp/${base}/chm13v2/${base}_chm13v2_alignment.bam
+	${basedir}/tmp/${base}/${base}_calls.bam > ${basedir}/tmp/${base}/chm13v2/${base}_chm13v2_alignment.bam
 samtools sort ${basedir}/tmp/${base}/chm13v2/${base}_chm13v2_alignment.bam > ${basedir}/tmp/${base}/chm13v2/${base}_chm13v2_alignment_sorted.bam
 samtools index ${basedir}/tmp/${base}/chm13v2/${base}_chm13v2_alignment_sorted.bam
 
 # Dorado Alignment hg19
 $dorado/dorado aligner /scratch/tmp/thomachr/references/hg19/hg19.fa \
-	${basedir}/tmp/${base}/${base}_calls_sorted.bam > ${basedir}/tmp/${base}/hg19/${base}_hg19_alignment.bam
+	${basedir}/tmp/${base}/${base}_calls.bam > ${basedir}/tmp/${base}/hg19/${base}_hg19_alignment.bam
 samtools sort ${basedir}/tmp/${base}/hg19/${base}_hg19_alignment.bam > ${basedir}/tmp/${base}/hg19/${base}_hg19_alignment_sorted.bam
 samtools index ${basedir}/tmp/${base}/hg19/${base}_hg19_alignment_sorted.bam
 
